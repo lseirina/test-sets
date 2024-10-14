@@ -54,9 +54,15 @@ class ModelTests(TestCase):
         self.assertEqual(answer.text, str(answer))
 
     def test_create_user_test_result(self):
+        """Test create a UserTestResult instance."""
         self.assertEqual(self.user_test_result.user, self.user)
         self.assertEqual(self.user_test_result.test_set, self.test_set)
         self.assertEqual(self.user_test_result.score, 80)
         self.assertEqual(self.user_test_result.total_questions, 10)
         self.assertEqual(self.user_test_result.total_questions, 10),
         self.assertEqual(self.user_test_result.correct_answers, 8)
+
+    def test_percentage_calculation(self):
+        """Test the percentage calculate method."""
+        expected_percentage = (8 / 10) * 100
+        self.assertEqual(self.user.percentage, expected_percentage)
