@@ -2,7 +2,7 @@
 Tests for models.
 """
 from django.test import TestCase
-from django.contrib.auth.models import get_user_model
+from django.contrib.auth import get_user_model
 from core import models
 
 
@@ -52,3 +52,11 @@ class ModelTests(TestCase):
         )
 
         self.assertEqual(answer.text, str(answer))
+
+    def test_create_user_test_result(self):
+        self.assertEqual(self.user_test_result.user, self.user)
+        self.assertEqual(self.user_test_result.test_set, self.test_set)
+        self.assertEqual(self.user_test_result.score, 80)
+        self.assertEqual(self.user_test_result.total_questions, 10)
+        self.assertEqual(self.user_test_result.total_questions, 10),
+        self.assertEqual(self.user_test_result.correct_answers, 8)
