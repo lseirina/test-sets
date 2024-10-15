@@ -47,3 +47,10 @@ class QuestionFormTest(TestCase):
         form = QuestionForm(self.question, data_form)
 
         self.assertTrue(form.is_valid())
+
+    def test_invalid_form_submission(self):
+        """Test invalid POST data."""
+        data_form = {}
+        form = QuestionForm(self.question, data_form)
+
+        self.assertFalse(form.is_valid())
