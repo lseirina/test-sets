@@ -37,4 +37,13 @@ class QuestionFormTest(TestCase):
             form.fields['answer'].queryset,
             Answer.objects.filter(question=self.question),
             transform=lambda x: x.id
-            )
+        )
+
+    def test_valid_form_submission(self):
+        """Test valid Post data."""
+        data_form = {
+            'answers': [self.answer1.id, self.answer2.id]
+        }
+        form = QuestionForm(self.question, data_form)
+
+        self.assertTrue(form.is_valid())
