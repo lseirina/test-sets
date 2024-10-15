@@ -65,4 +65,6 @@ class ModelTests(TestCase):
     def test_percentage_calculation(self):
         """Test the percentage calculate method."""
         expected_percentage = (8 / 10) * 100
-        self.assertEqual(self.user.percentage, expected_percentage)
+        self.assertEqual(
+            self.user_test_result.persentage(), expected_percentage
+            )
