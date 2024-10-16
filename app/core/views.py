@@ -10,6 +10,7 @@ from core.forms import QuestionForm
 def start_test(request, test_set_id):
     test_set = get_object_or_404(TestSet, id=test_set_id)
     questions = test_set.question.all()
+
     if 'current_question' not in request.session:
         request.session['current_question'] = 0
         request.session['score'] = 0
