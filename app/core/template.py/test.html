@@ -1,0 +1,11 @@
+<!DOCKTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width+device-width, initial-scale=1.0">
+    <title>{{ test_set.title }} - Question</title>
+</head>
+<body>
+    <h1>{{ test_set.title }}</h1>
+    <p>Question {{ request.session.current_question|add:1 }} of {{test_set.question.count }}</p>
+</body>
