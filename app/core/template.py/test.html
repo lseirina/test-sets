@@ -8,4 +8,15 @@
 <body>
     <h1>{{ test_set.title }}</h1>
     <p>Question {{ request.session.current_question|add:1 }} of {{test_set.question.count }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>{{ current_question.ext }}</legend>
+            {{ form.as_p }}
+        </fieldset>
+
+        <button type="submit">Submit Answer</button>
+    </form>
 </body>
+</html>
