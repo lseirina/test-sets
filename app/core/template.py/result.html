@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Results</title>
+</head>
+<body>
+    <h1>{{ test_set.title }} - Results</h1>
+
+    <p>You've completed the test!</p>
+    <p>Your score: {{ request.session.score }} / {{ test_set.question.count() }}</p>
+    <p>Percentage: {{ percentage }}%</p>
+
+    <a href="{% url 'start_test' test_set_id=test_set.id%}">Try again</a>
+</body>
