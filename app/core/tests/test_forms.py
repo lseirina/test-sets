@@ -34,9 +34,10 @@ class QuestionFormTest(TestCase):
         form = QuestionForm(question=self.question)
 
         self.assertQuerysetEqual(
-            form.fields['answer'].queryset,
-            Answer.objects.filter(question=self.question),
-            transform=lambda x: x.id
+            form.fields['answers'].queryset,
+            [self.answer1, self.answer2, self.answer3],
+            transform=lambda x: x,
+            ordered=False,
         )
 
     def test_valid_form_submission(self):

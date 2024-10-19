@@ -11,4 +11,4 @@ class QuestionForm(forms.Form):
 
     def __init__(self, question, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['answer'].queryset = question.answer.all()
+        self.fields['answers'].queryset = question.answer.all()
